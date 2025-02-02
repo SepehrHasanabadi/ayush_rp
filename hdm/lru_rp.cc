@@ -50,7 +50,9 @@ LRU::LRUStats::LRUStats(statistics::Group *parent)
     ADD_STAT(nvmWrite, statistics::units::Count::get(),
              "number of NVM blocks in a set"),
     ADD_STAT(writeCounter, statistics::units::Count::get(),
-    "Write Counter")
+    "Write Counter"),
+    ADD_STAT(nvmVictims, statistics::units::Count::get(),
+    "Number of NVM victims")
 {
 }
 
@@ -108,6 +110,9 @@ LRU::getVictim(const ReplacementCandidates& candidates) const
       sramVictimData->way = way;
       lastWay = 0;
       return sramVictim;
+    }
+    if (victimData->isNVM) {
+      stats.nvmVictims += 1;
     }
     lastWay = victimData->way;
     return victim;

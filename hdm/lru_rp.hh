@@ -63,6 +63,7 @@ class LRU : public Base
 
           mutable statistics::Scalar nvmWrite;
           mutable statistics::Scalar writeCounter;
+          mutable statistics::Scalar nvmVictims;
       } stats;
 
     /** LRU-specific implementation of replacement data. */
