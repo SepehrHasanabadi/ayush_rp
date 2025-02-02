@@ -55,10 +55,3 @@ Modify these values inside `ayush_config.py` as needed.
 
 ## License
 This project follows the same license as gem5. Refer to the gem5 documentation for details.
-
-## Author
-Maintained by Ayush and HDM.
-
----
-Feel free to contribute or report issues!
-
